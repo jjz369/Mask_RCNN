@@ -1,12 +1,12 @@
 # Twitter following button detection
 
-This is a simple challenge to detect the Twitter following buttons, and then we will output the bounding boxes and visualize the page with color masks on the buttons.
+This is a simple challenge to detect the Twitter following buttons, and the outputs are the bounding boxes for the button detection and figure visulization with color masks on the buttons.
 
 The output looks like this:
 
 ![Twitter following button](https://github.com/jjz369/Mask_RCNN/blob/master/Twitter_button/images/5_detected.png)
 
-The training and validation datasets are based on 4 twitter following page screenshots similar to the above figure. Randomly cut the figures into smaller ~50 images, and separated into training and validation datasets. The annotations (json format) are obtained using [VIA](http://www.robots.ox.ac.uk/~vgg/software/via/).  
+The training and validation datasets are based on 4 twitter following page screenshots similar to the above figure (as shown 1.png ~ 4.png in image folder). Randomly cut the figures into smaller ~50 images, and separated into training and validation datasets (as shown in datasets/train and datasets/val). The annotations (json format) are obtained using [VIA](http://www.robots.ox.ac.uk/~vgg/software/via/).  
 
 
 ## Detect the following buttons

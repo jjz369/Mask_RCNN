@@ -3,46 +3,34 @@
 This is a simple challenge to detect the Twitter following buttons, and then we will output the bounding boxes and visualize the page with color masks on the buttons.
 
 The output looks like this:
-![Twitter following button](/Twitter_buttons/images/5_detected.jpg)
+![Twitter following button](https://github.com/jjz369/Mask_RCNN/blob/master/Twitter_button/images/5_detected.png)
 
-## Installation
-From the [Releases page](https://github.com/matterport/Mask_RCNN/releases) page:
-1. Download `mask_rcnn_balloon.h5`. Save it in the root directory of the repo (the `mask_rcnn` directory).
-2. Download `balloon_dataset.zip`. Expand it such that it's in the path `mask_rcnn/datasets/balloon/`.
+## Detect the following buttons
 
-## Apply color splash using the provided weights
-Apply splash effect on an image:
+To detect the Twitter following buttons, use the following command:
 
 ```bash
-python3 balloon.py splash --weights=/path/to/mask_rcnn/mask_rcnn_balloon.h5 --image=<file name or URL>
+python3 button.py detect --weights=last --image=./datasets/test/5.jpg
 ```
-
-Apply splash effect on a video. Requires OpenCV 3.2+:
-
-```bash
-python3 balloon.py splash --weights=/path/to/mask_rcnn/mask_rcnn_balloon.h5 --video=<file name or URL>
-```
-
 
 ## Run Jupyter notebooks
-Open the `inspect_balloon_data.ipynb` or `inspect_balloon_model.ipynb` Jupter notebooks. You can use these notebooks to explore the dataset and run through the detection pipelie step by step.
-
+Open the `Twitter_button_detection.ipynb` Jupyter notebook. This notebook shows the detailed flow of the detection.
+ 
 ## Train the Balloon model
 
 Train a new model starting from pre-trained COCO weights
 ```
-python3 balloon.py train --dataset=/path/to/balloon/dataset --weights=coco
+python3 button.py train --dataset=./datasets/train --weights=coco
 ```
 
 Resume training a model that you had trained earlier
 ```
-python3 balloon.py train --dataset=/path/to/balloon/dataset --weights=last
+python3 button.py train --dataset=./datasets/train --weights=last
 ```
 
 Train a new model starting from ImageNet weights
 ```
-python3 balloon.py train --dataset=/path/to/balloon/dataset --weights=imagenet
+python3 button.py train --dataset=./datasets/train --weights=imagenet
 ```
 
-The code in `balloon.py` is set to train for 3K steps (30 epochs of 100 steps each), and using a batch size of 2. 
-Update the schedule to fit your needs.
+The training process use a configuration for only one epoch in heads training and one epoch in all weights training for simplicity. 

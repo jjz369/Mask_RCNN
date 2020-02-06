@@ -14,7 +14,7 @@ The training and validation datasets are based on 4 twitter following page scree
 To detect the Twitter following buttons, use the following command:
 
 ```bash
-python3 button.py detect --weights=last --image=./datasets/test/5.jpg
+python3 button.py detect --weights=/path/to/mask_rcnn/mask_rcnn_button.h5 --image=<file name or URL>
 ```
 
 ## Run Jupyter notebooks
@@ -24,17 +24,17 @@ Open the `Twitter_button_detection.ipynb` Jupyter notebook. This notebook shows 
 
 Train a new model starting from pre-trained COCO weights
 ```
-python3 button.py train --dataset=./datasets/train --weights=coco
+python3 button.py train --dataset=/path/to/button/datasets/ --weights=coco
 ```
 
 Resume training a model that you had trained earlier
 ```
-python3 button.py train --dataset=./datasets/train --weights=last
+python3 button.py train --dataset=/path/to/button/datasets/ --weights=last
 ```
 
 Train a new model starting from ImageNet weights
 ```
-python3 button.py train --dataset=./datasets/train --weights=imagenet
+python3 button.py train --dataset=/path/to/button/datasets/train --weights=imagenet
 ```
 
 The training process use a configuration for only one epoch in heads training and one epoch in all weights training for simplicity. 

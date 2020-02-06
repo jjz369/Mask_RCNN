@@ -34,7 +34,7 @@ python3 button.py train --dataset=/path/to/button/datasets/ --weights=last
 
 Train a new model starting from ImageNet weights
 ```
-python3 button.py train --dataset=/path/to/button/datasets/train --weights=imagenet
+python3 button.py train --dataset=/path/to/button/datasets/ --weights=imagenet
 ```
 
 The training process use a configuration for only one epoch in heads training and one epoch in all weights training for simplicity. 
